@@ -3,4 +3,20 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- grayscale -->
+    <!-- 87% black (e.g. primary text) -->
+    <color name="black">#DD000000</color>
+    <!-- 54% black (e.g. secondary text)-->
+    <color name="gray_dark">#78000000</color>
+    <!-- 38% black (e.g. disabled text, hint text) -->
+    <color name="gray">#61000000</color>
+    <!-- 12% black (e.g. dividers) -->
+    <color name="gray_light">#1F000000</color>
+    <!-- 96% white -->
+    <color name="white_smoke">#F5F5F5</color>
+    <!-- 100% white-->
+    <color name="white">#FFFFFF</color>
+
+    <color name="primary">@color/white</color>
 </resources>

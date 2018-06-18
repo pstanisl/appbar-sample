@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigationContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.button.MaterialButton
-        android:id="@+id/button1"
+    <ImageView
+        android:id="@+id/vNavigationAppLogo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="button1"
+        android:layout_height="56dp"
+        app:srcCompat="@drawable/ic_app_menu_logo"
+        android:paddingBottom="@dimen/keyline_1"
+        android:paddingTop="@dimen/keyline_1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-    />
+        app:layout_constraintBottom_toTopOf="@id/divider_logo"/>
 
-    <android.support.design.button.MaterialButton
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+    <View
+        android:id="@+id/divider_logo"
+        style="@style/BottomSheetEntryDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/vNavigation" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/vNavigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="button2"
-        app:layout_constraintTop_toBottomOf="@id/button1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_gravity="bottom"
+        app:itemIconPadding="@dimen/keyline_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/navigation" />
 
-    <android.support.design.button.MaterialButton
-        android:id="@+id/button3"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="button3"
-        app:layout_constraintTop_toBottomOf="@id/button2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
