@@ -1,9 +1,9 @@
-package cz.pstanisl.appbarexample.ui
+package cz.pstanisl.appbarexample.ui.shared
 
 import android.app.Dialog
 import android.os.Bundle
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import android.support.design.widget.BottomSheetDialog
+import android.support.design.widget.BottomSheetDialogFragment
 import cz.pstanisl.appbarexample.R
 
 open class RoundedBottomSheetDialogFragment: BottomSheetDialogFragment() {

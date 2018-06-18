@@ -5,4 +5,8 @@
     <string name="action_settings">settings</string>
     <string name="nav_item_dashboard">Dashboard</string>
     <string name="nav_item_favorite">Favorite</string>
+
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_favorite">Favorite</string>
+
 </resources>

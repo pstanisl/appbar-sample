@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="brand_primary">#0081d5</color>
+    <color name="brand_primary_dark">#2D86CC</color>
+    <color name="brand_accent">#ED3237</color>
+
+    <color name="primaryColor">#0081d5</color>
+    <color name="primaryLightColor">#5eb0ff</color>
+    <color name="primaryDarkColor">#0055a3</color>
+    <color name="secondaryColor">#d1335b</color>
+    <color name="secondaryLightColor">#ff6988</color>
+    <color name="secondaryDarkColor">#9a0032</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#ffffff</color>
 
     <!-- grayscale -->
     <!-- 87% black (e.g. primary text) -->

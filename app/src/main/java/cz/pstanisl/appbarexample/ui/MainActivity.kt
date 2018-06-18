@@ -1,8 +1,9 @@
 package cz.pstanisl.appbarexample.ui
 
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import cz.pstanisl.appbarexample.R
 import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
@@ -16,26 +17,12 @@ class MainActivity : AppCompatActivity() {
         setup()
     }
 
+    override fun onSupportNavigateUp() = findNavController(R.id.appbar_sample_nav_host_fragment).navigateUp()
+
     private fun setup() {
-        bottomBar.replaceMenu(R.menu.bottomappbar_menu)
-        bottomBar.setOnMenuItemClickListener { item ->
-            Timber.d("BottomBar menu item clicked: %s", item.itemId)
-            when (item.itemId) {
-                R.id.app_bar_fav -> toast("Fav menu item is clicked!")
-                R.id.app_bar_search -> toast("Search menu item is clicked!")
-                R.id.app_bar_settings -> toast("Settings menu item is clicked!")
-            }
-            true
-        }
         bottomBar.setNavigationOnClickListener {
-            Timber.d("Showing navigation")
-//            drawerLayout.openDrawer(Gravity.BOTTOM)
             val navigationFragment = BottomNavigationFragment()
             navigationFragment.show(supportFragmentManager, navigationFragment.tag)
         }
-    }
-
-    private fun toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
-        Toast.makeText(this, message, duration).show()
     }
 }
