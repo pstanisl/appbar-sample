@@ -30,7 +30,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:paddingStart="@dimen/keyline_1"
+        android:paddingEnd="@dimen/keyline_1"
+        app:itemBackground="@drawable/navigation_item_bg"
         app:itemIconPadding="@dimen/keyline_2"
+        app:itemTextColor="@drawable/navigation_item_color"
+        app:itemIconTint="@drawable/navigation_item_color"
+        app:itemHorizontalPadding="@dimen/keyline_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/navigation" />
 
