@@ -23,7 +23,7 @@ class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
     }
 
     private fun setup() {
-        // Setup navigation component
+        // Setup lateral_navigation component
         val navController = Navigation.findNavController(activity as Activity, R.id.appbar_sample_nav_host_fragment)
         // Hide NavigationView after destination change
         navController.addOnNavigatedListener { _, _ ->
@@ -32,7 +32,7 @@ class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
             }
         }
         // Connect NavigationView and NavController
-        vNavigation.setupWithNavController(navController)
+        vLateralNavigation.setupWithNavController(navController)
     }
 
 
