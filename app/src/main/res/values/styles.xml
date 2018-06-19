@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/secondaryColor</item>
 
-        <item name="android:windowBackground">@color/primary</item>
+        <item name="android:windowBackground">@color/background</item>
     </style>
 
     <!-- set the rounded drawable as background to your bottom sheet -->
