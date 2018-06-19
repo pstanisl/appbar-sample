@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="bottom_app_bar_fake_elevation_height">4dp</dimen>
+    <dimen name="bottom_app_bar_fake_elevation_height">8dp</dimen>
     <dimen name="bottom_sheet_corner_radius">4dp</dimen>
     <dimen name="bottom_sheet_top_padding">8dp</dimen>
 
