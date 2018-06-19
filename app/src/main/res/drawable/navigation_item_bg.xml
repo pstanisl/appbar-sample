@@ -7,7 +7,7 @@
             android:shape="rectangle">
             <corners
                 android:radius="@dimen/bottom_sheet_corner_radius" />
-            <solid android:color="@color/primarySelectedColor" />
+            <solid android:color="@color/primary_selected" />
         </shape>
     </item>
 
