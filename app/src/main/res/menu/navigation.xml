@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/nav_item_dashboard"
-        android:checkable="true" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/dashboard"
+            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:title="@string/nav_item_dashboard" />
 
-    <item
-        android:id="@+id/favorite"
-        android:icon="@drawable/ic_favorite_black_24dp"
-        android:title="@string/nav_item_favorite"
-        android:checkable="true" />
+        <item
+            android:id="@+id/favorite"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:title="@string/nav_item_favorite" />
+    </group>
 
 </menu>
