@@ -55,6 +55,7 @@
         android:textAlignment="textStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu"
         android:textColor="@color/gray_dark"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/vForwardNavigation"
@@ -73,7 +74,15 @@
         app:itemTextColor="@drawable/navigation_item_color"
         app:itemIconTint="@drawable/navigation_item_color"
         app:itemHorizontalPadding="@dimen/keyline_1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/vNavigationMenuFooter"
         app:menu="@menu/forward_navigation" />
+
+    <include
+        android:id="@+id/vNavigationMenuFooter"
+        layout="@layout/navigation_menu_footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+    />
 
 </android.support.constraint.ConstraintLayout>
