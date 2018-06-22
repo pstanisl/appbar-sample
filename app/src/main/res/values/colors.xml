@@ -2,17 +2,16 @@
 <resources>
 
 
-    <color name="google_gray50">#FAFAFA</color>
-    <color name="google_gray100">#F5F5F5</color>
-    <color name="google_gray200">#EEEEEE</color>
-    <color name="google_gray300">#E0E0E0</color>
-    <color name="google_gray400">#BDBDBD</color>
-    <color name="google_gray500">#9E9E9E</color>
-    <color name="google_gray600">#757575</color>
-    <color name="google_gray700">#616161</color>
-    <color name="google_gray800">#424242</color>
-    <color name="google_gray900">#212121</color>
-
+    <!--<color name="google_gray50">#FAFAFA</color>-->
+    <!--<color name="google_gray100">#F5F5F5</color>-->
+    <!--<color name="google_gray200">#EEEEEE</color>-->
+    <!--<color name="google_gray300">#E0E0E0</color>-->
+    <!--<color name="google_gray400">#BDBDBD</color>-->
+    <!--<color name="google_gray500">#9E9E9E</color>-->
+    <!--<color name="google_gray600">#757575</color>-->
+    <!--<color name="google_gray700">#616161</color>-->
+    <!--<color name="google_gray800">#424242</color>-->
+    <!--<color name="google_gray900">#212121</color>-->
 
     <!-- grayscale -->
     <!-- 87% black (e.g. primary text) -->
@@ -32,13 +31,13 @@
     <color name="primary">#0081d5</color>
     <color name="primary_light">#5eb0ff</color>
     <color name="primary_dark">#0055a3</color>
-    <color name="primary_selected">#1E0081d5</color>
     <color name="secondary">#d1335b</color>
     <color name="secondary_light">#ff6988</color>
     <color name="secondary_dark">#9a0032</color>
 
     <!-- Background colors -->
     <color name="background">@color/white</color>
+    <color name="background_primary">#1F0081d5</color>
     <!--<color name="error">@color/white</color>-->
     <color name="surface">@color/white</color>
 
