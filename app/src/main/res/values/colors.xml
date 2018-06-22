@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
+    <color name="google_gray50">#FAFAFA</color>
+    <color name="google_gray100">#F5F5F5</color>
+    <color name="google_gray200">#EEEEEE</color>
+    <color name="google_gray300">#E0E0E0</color>
+    <color name="google_gray400">#BDBDBD</color>
+    <color name="google_gray500">#9E9E9E</color>
+    <color name="google_gray600">#757575</color>
+    <color name="google_gray700">#616161</color>
+    <color name="google_gray800">#424242</color>
+    <color name="google_gray900">#212121</color>
+
+
     <!-- grayscale -->
     <!-- 87% black (e.g. primary text) -->
-    <color name="black">#DD000000</color>
+    <color name="black">#DE000000</color>
     <!-- 54% black (e.g. secondary text)-->
-    <color name="gray_dark">#78000000</color>
+    <color name="gray_dark">#8A000000</color>
     <!-- 38% black (e.g. disabled text, hint text) -->
     <color name="gray">#61000000</color>
     <!-- 12% black (e.g. dividers) -->
@@ -35,5 +48,8 @@
     <color name="on_background">@color/black</color>
     <!--<color name="on_error">@color/black</color>-->
     <color name="on_surface">@color/black</color>
+
+    <color name="text_primary_on_background">@color/black</color>
+    <color name="text_secondary_on_background">@color/gray_dark</color>
 
 </resources>

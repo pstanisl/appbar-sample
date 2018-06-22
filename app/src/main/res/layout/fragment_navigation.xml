@@ -33,7 +33,7 @@
         android:background="@android:color/transparent"
         android:theme="@style/AppTheme.NavigationViewOverlay"
         app:itemBackground="@drawable/navigation_item_background"
-        app:itemIconTint="@color/navigation_item_color"
+        app:itemIconTint="@color/navigation_icon_color"
         app:itemTextColor="@color/navigation_item_color"
         app:layout_constraintBottom_toTopOf="@id/divider_navigation"
         app:menu="@menu/lateral_navigation"
