@@ -30,37 +30,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:paddingStart="@dimen/keyline_1"
-        android:paddingEnd="@dimen/keyline_1"
-        app:itemBackground="@drawable/navigation_item_bg"
-        app:itemIconPadding="@dimen/keyline_2"
-        app:itemTextColor="@drawable/navigation_item_color"
-        app:itemIconTint="@drawable/navigation_item_color"
-        app:itemHorizontalPadding="@dimen/keyline_1"
+        android:background="@android:color/transparent"
+        android:theme="@style/AppTheme.NavigationViewOverlay"
+        app:itemBackground="@drawable/navigation_item_background"
+        app:itemIconTint="@color/navigation_item_color"
+        app:itemTextColor="@color/navigation_item_color"
         app:layout_constraintBottom_toTopOf="@id/divider_navigation"
-        app:menu="@menu/lateral_navigation" />
+        app:menu="@menu/lateral_navigation"
+        style="@style/NavigationView" />
 
     <View
         android:id="@+id/divider_navigation"
         style="@style/BottomSheetEntryDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnSendFeedback" />
-
-    <android.support.design.button.MaterialButton
-        android:id="@+id/btnSendFeedback"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/action_send_feedback"
-        android:textAlignment="textStart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
-        android:textColor="@color/gray_dark"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/vForwardNavigation"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        />
+        app:layout_constraintBottom_toTopOf="@id/vForwardNavigation" />
 
     <android.support.design.widget.NavigationView
         android:id="@+id/vForwardNavigation"
@@ -69,20 +53,21 @@
         android:layout_gravity="bottom"
         android:paddingStart="@dimen/keyline_1"
         android:paddingEnd="@dimen/keyline_1"
-        app:itemBackground="@drawable/navigation_item_bg"
+        app:itemBackground="@drawable/navigation_item_background"
         app:itemIconPadding="@dimen/keyline_2"
-        app:itemTextColor="@drawable/navigation_item_color"
-        app:itemIconTint="@drawable/navigation_item_color"
+        app:itemTextColor="@color/navigation_item_color"
+        app:itemIconTint="@color/navigation_item_color"
         app:itemHorizontalPadding="@dimen/keyline_1"
-        app:layout_constraintBottom_toTopOf="@id/vNavigationMenuFooter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/forward_navigation" />
 
-    <include
-        android:id="@+id/vNavigationMenuFooter"
-        layout="@layout/navigation_menu_footer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-    />
+    <!--<include-->
+        <!--android:id="@+id/vNavigationMenuFooter"-->
+        <!--layout="@layout/navigation_menu_footer"-->
+        <!--android:visibility="gone"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--/>-->
 
 </android.support.constraint.ConstraintLayout>
