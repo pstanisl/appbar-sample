@@ -38,6 +38,8 @@
         app:itemIconTint="@color/navigation_icon_color"
         app:itemTextColor="@color/navigation_item_color"
         app:layout_constraintBottom_toTopOf="@id/divider_navigation"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/lateral_navigation"
         style="@style/NavigationView" />
 
@@ -53,23 +55,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:paddingStart="@dimen/keyline_1"
-        android:paddingEnd="@dimen/keyline_1"
+        android:theme="@style/AppTheme.NavigationViewOverlay"
         app:itemBackground="@drawable/navigation_item_background"
+        app:itemHorizontalPadding="@dimen/keyline_2"
         app:itemIconPadding="@dimen/keyline_4"
         app:itemTextColor="@color/navigation_item_color"
-        app:itemIconTint="@color/navigation_item_color"
-        app:itemHorizontalPadding="@dimen/keyline_1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/forward_navigation" />
+        app:itemIconTint="@color/navigation_icon_color"
+        app:layout_constraintBottom_toTopOf="@id/divider_footer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/forward_navigation"
+        style="@style/NavigationView" />
 
-    <!--<include-->
-        <!--android:id="@+id/vNavigationMenuFooter"-->
-        <!--layout="@layout/navigation_menu_footer"-->
-        <!--android:visibility="gone"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--/>-->
+    <include
+        layout="@layout/navigation_menu_footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+    />
 
 </android.support.constraint.ConstraintLayout>

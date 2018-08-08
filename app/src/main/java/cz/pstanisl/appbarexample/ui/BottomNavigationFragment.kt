@@ -10,6 +10,10 @@ import androidx.navigation.ui.setupWithNavController
 import cz.pstanisl.appbarexample.R
 import cz.pstanisl.appbarexample.ui.shared.RoundedBottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_navigation.*
+import kotlinx.android.synthetic.main.navigation_menu_footer.*
+import android.content.Intent
+import android.net.Uri
+
 
 class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
 
@@ -20,6 +24,9 @@ class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setup()
+
+        tvPrivacyPolicy.setOnClickListener { openUri("https://www.google.cz") }
+        tvFAQ.setOnClickListener { openUri("https://www.seznam.cz") }
     }
 
     private fun setup() {
@@ -35,6 +42,10 @@ class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
         vLateralNavigation.setupWithNavController(navController)
     }
 
+    private fun openUri(uri: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+        startActivity(intent)
+    }
 
 
 }
