@@ -7,9 +7,11 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import cz.pstanisl.appbarexample.R
 import cz.pstanisl.appbarexample.ui.shared.toast
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import timber.log.Timber
 
 
@@ -53,6 +55,10 @@ class DashboardFragment : Fragment() {
                 R.id.app_bar_settings -> toast("Settings menu item is clicked!")
             }
             true
+        }
+
+        btnShowDetail.setOnClickListener {
+            view.findNavController().navigate(R.id.detail)
         }
     }
 

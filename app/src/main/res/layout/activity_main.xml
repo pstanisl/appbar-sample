@@ -21,11 +21,12 @@
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
         android:elevation="8dp"
-        app:theme="@style/ThemeOverlay.MaterialComponents.Light"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Light"
         app:navigationIcon="@drawable/ic_menu_black_24dp"/>
 
     <!-- NOTE: Fixing issue with missing elevation shadow -->
     <View
+        android:id="@+id/bottomBarShadow"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_app_bar_fake_elevation_height"
         android:background="@drawable/top_elevation"

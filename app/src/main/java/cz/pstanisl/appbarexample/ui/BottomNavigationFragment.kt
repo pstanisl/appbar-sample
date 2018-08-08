@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.navigation_menu_footer.*
 import android.content.Intent
 import android.net.Uri
 import androidx.navigation.NavController
-import timber.log.Timber
 
 
 class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
