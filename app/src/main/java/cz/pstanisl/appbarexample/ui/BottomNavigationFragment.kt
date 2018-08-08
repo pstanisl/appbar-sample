@@ -1,6 +1,7 @@
 package cz.pstanisl.appbarexample.ui
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,9 +14,18 @@ import kotlinx.android.synthetic.main.fragment_navigation.*
 import kotlinx.android.synthetic.main.navigation_menu_footer.*
 import android.content.Intent
 import android.net.Uri
+import androidx.navigation.NavController
+import timber.log.Timber
 
 
 class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
+
+    private val mNavigationListener = NavController.OnNavigatedListener { _, _ ->
+        // Dismiss navigation view after navigation if it is visible
+        if (this.isVisible) {
+            this.dismiss()
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_navigation, container, false)
@@ -29,15 +39,17 @@ class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
         tvFAQ.setOnClickListener { openUri("https://www.seznam.cz") }
     }
 
+    override fun onDismiss(dialog: DialogInterface?) {
+        super.onDismiss(dialog)
+        val navController = Navigation.findNavController(activity as Activity, R.id.appbar_sample_nav_host_fragment)
+        navController.removeOnNavigatedListener(mNavigationListener)
+    }
+
     private fun setup() {
         // Setup lateral_navigation component
         val navController = Navigation.findNavController(activity as Activity, R.id.appbar_sample_nav_host_fragment)
         // Hide NavigationView after destination change
-        navController.addOnNavigatedListener { _, _ ->
-            if (this.isVisible) {
-                this.dismiss()
-            }
-        }
+        navController.addOnNavigatedListener(mNavigationListener)
         // Connect NavigationView and NavController
         vLateralNavigation.setupWithNavController(navController)
     }
