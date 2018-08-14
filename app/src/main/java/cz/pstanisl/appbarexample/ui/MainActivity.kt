@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     private fun changeAppBarVisibility(visible: Boolean) {
         bottomBar.visibility = if (visible) View.VISIBLE else View.GONE
         bottomBarShadow.visibility = if (visible) View.VISIBLE else View.GONE
+        toolbar.visibility = if (visible) View.GONE else View.VISIBLE
 //        collapsingToolbar.coll
     }
 }
