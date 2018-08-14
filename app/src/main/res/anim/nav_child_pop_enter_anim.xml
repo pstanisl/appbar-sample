@@ -6,7 +6,7 @@
         android:toYDelta="0"
         android:duration="@integer/config_child_anim_duration"/>
     <alpha
-        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:interpolator="@android:anim/accelerate_interpolator"
         android:duration="@integer/config_child_anim_duration"
         android:fromAlpha="0.0"
         android:toAlpha="1.0" />
