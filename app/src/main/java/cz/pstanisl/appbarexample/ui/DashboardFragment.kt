@@ -58,7 +58,9 @@ class DashboardFragment : Fragment() {
         }
 
         btnShowDetail.setOnClickListener {
-            view.findNavController().navigate(R.id.detail)
+            val action = DashboardFragmentDirections.actionDashboardToDetailFragment("testId")
+//            view.findNavController().navigate(R.id.detail)
+            view.findNavController().navigate(action)
         }
     }
 
