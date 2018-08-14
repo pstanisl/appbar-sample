@@ -5,15 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<android.support.design.widget.AppBarLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:elevation="0dp">-->
-
-        <!--<android.support.design.widget.CollapsingToolbarLayout-->
-            <!--android:id="@+id/collapsingToolbar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -22,9 +17,7 @@
             android:layout_height="?attr/actionBarSize"
         />
 
-        <!--</android.support.design.widget.CollapsingToolbarLayout>-->
-
-    <!--</android.support.design.widget.AppBarLayout>-->
+    </android.support.design.widget.AppBarLayout>
 
     <fragment
         android:layout_width="match_parent"
@@ -43,7 +36,7 @@
         android:background="?android:attr/windowBackground"
         android:elevation="8dp"
         android:theme="@style/ThemeOverlay.MaterialComponents.Light"
-        app:navigationIcon="@drawable/ic_menu_black_24dp"/>
+        app:navigationIcon="@drawable/ic_menu_black_24dp" />
 
     <!-- NOTE: Fixing issue with missing elevation shadow -->
     <View
