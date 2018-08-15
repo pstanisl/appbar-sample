@@ -15,7 +15,7 @@
 
     <!--<group android:id="@+id/forward_settings">-->
         <!--<item-->
-            <!--android:id="@+id/settings"-->
+            <!--android:id="@+id/preference"-->
             <!--android:icon="@drawable/ic_settings_black_24dp"-->
             <!--android:title="@string/nav_item_settings" />-->
     <!--</group>-->

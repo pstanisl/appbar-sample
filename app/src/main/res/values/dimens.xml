@@ -8,4 +8,6 @@
     <dimen name="keyline_2">16dp</dimen>
     <dimen name="keyline_3">24dp</dimen>
     <dimen name="keyline_4">32dp</dimen>
+
+    <dimen name="toolbar_margin_compensation">?attr/actionBarSize</dimen>
 </resources>

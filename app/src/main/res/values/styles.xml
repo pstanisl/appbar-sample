@@ -10,11 +10,25 @@
         <item name="android:windowBackground">@color/background</item>
 
         <item name="android:listDivider">@color/gray_light</item>
+
+        <item name="preferenceTheme">@style/AppTheme.PreferenceStyle</item>
     </style>
 
     <style name="AppTheme.NavigationViewOverlay" parent="@style/Widget.Design.NavigationView">
         <!-- set divider visual in the navigation view -->
         <item name="android:listDivider">@drawable/divider</item>
+    </style>
+
+    <!--<style name="AppTheme.Preference"-->
+
+    <!-- Custom Preference Theme -->
+    <style name="AppTheme.PreferenceStyle" parent="@style/PreferenceThemeOverlay.v14.Material">
+        <item name="preferenceFragmentCompatStyle">@style/AppTheme.PreferenceFragmentCompatStyle</item>
+    </style>
+
+    <!-- Custom Style for PreferenceFragmentCompat -->
+    <style name="AppTheme.PreferenceFragmentCompatStyle" parent="@style/PreferenceFragment.Material">
+        <item name="android:layout">@layout/pref_screen</item>
     </style>
 
     <!-- set the rounded drawable as background to your bottom sheet -->

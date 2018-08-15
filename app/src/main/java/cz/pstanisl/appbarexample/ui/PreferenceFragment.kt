@@ -1,26 +1,29 @@
 package cz.pstanisl.appbarexample.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.preference.PreferenceFragmentCompat
 import cz.pstanisl.appbarexample.R
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_detail.*
 
-class DetailFragment: Fragment() {
+class PreferenceFragment : PreferenceFragmentCompat() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        preferenceManager.sharedPreferencesName = "general_prefs"
+        // Load the Preferences from the XML file
+        addPreferencesFromResource(R.xml.preferences_main)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val parentActivity = activity as MainActivity
+        val toolbar = parentActivity.toolbar
+        toolbar.title = ""
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val detailId = DetailFragmentArgs.fromBundle(arguments).detailId
-        tvDetail.text = detailId
 
         val parentActivity = activity as MainActivity
         val toolbar = parentActivity.toolbar
@@ -29,7 +32,7 @@ class DetailFragment: Fragment() {
             // Navigate back to the previous item in the backstack
             view.findNavController().popBackStack()
         }
-
+        toolbar.setTitle(R.string.title_preferences)
     }
 
 }

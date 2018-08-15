@@ -18,5 +18,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_detail">Detail</string>
     <string name="title_favorite">Favorite</string>
+    <string name="title_preferences">Preferences</string>
 
 </resources>

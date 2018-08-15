@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import androidx.navigation.ui.setupWithNavController
 import cz.pstanisl.appbarexample.R
 import cz.pstanisl.appbarexample.ui.shared.RoundedBottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_navigation.*
@@ -15,7 +14,7 @@ import kotlinx.android.synthetic.main.navigation_menu_footer.*
 import android.content.Intent
 import android.net.Uri
 import androidx.navigation.NavController
-
+import androidx.navigation.ui.NavigationUI
 
 class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
 
@@ -50,7 +49,15 @@ class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
         // Hide NavigationView after destination change
         navController.addOnNavigatedListener(mNavigationListener)
         // Connect NavigationView and NavController
-        vLateralNavigation.setupWithNavController(navController)
+//        vLateralNavigation.setupWithNavController(navController)
+        NavigationUI.setupWithNavController(vLateralNavigation, navController)
+        // Create Forward navigation items
+        vForwardNavigation.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.preference -> navController.navigate(R.id.action_global_preference)
+            }
+            return@setNavigationItemSelectedListener true
+        }
     }
 
     private fun openUri(uri: String) {
