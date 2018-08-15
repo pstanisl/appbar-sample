@@ -13,6 +13,17 @@
     <!--<color name="google_gray800">#424242</color>-->
     <!--<color name="google_gray900">#212121</color>-->
 
+    <color name="google_grey50">#f8f9fa</color>
+    <color name="google_grey100">#f1f3f4</color>
+    <color name="google_grey200">#e8eaed</color>
+    <color name="google_grey300">#dadce0</color>
+    <color name="google_grey400">#bdc1c6</color>
+    <color name="google_grey500">#9aa0a6</color>
+    <color name="google_grey600">#80868b</color>
+    <color name="google_grey700">#5f6368</color>
+    <color name="google_grey800">#3c4043</color>
+    <color name="google_grey900">#202124</color>
+
     <!-- grayscale -->
     <!-- 87% black (e.g. primary text) -->
     <color name="black">#DE000000</color>

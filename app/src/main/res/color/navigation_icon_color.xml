@@ -3,6 +3,6 @@
 
     <item android:state_checked="true" android:color="@color/primary" />
     <item android:state_enabled="true" android:color="@color/text_secondary_on_background" />
-    <item android:color="@color/gray" />
+    <item android:color="@color/google_grey600" />
 
 </selector>
