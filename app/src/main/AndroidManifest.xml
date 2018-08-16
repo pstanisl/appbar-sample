@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cz.pstanisl.appbarexample">
 
+    <!-- Permission it access on the Internet -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".AppBarExampleApp"
         android:allowBackup="true"

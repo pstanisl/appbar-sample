@@ -18,12 +18,12 @@ class DashboardViewModel @Inject constructor(
                 )
     }
 
-    inner class InboxObserver : DisposableObserver<List<Message>>() {
+    inner class InboxObserver : DisposableObserver<GetInboxUseCase.ResponseValues>() {
         override fun onComplete() {
             Timber.d("Get inbox messages completed.")
         }
 
-        override fun onNext(t: List<Message>) {
+        override fun onNext(t: GetInboxUseCase.ResponseValues) {
             Timber.d("Inbox messages: %s", t)
         }
 
