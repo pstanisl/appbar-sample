@@ -1,4 +1,4 @@
-package cz.pstanisl.appbarexample.ui
+package cz.pstanisl.appbarexample.ui.dashboard
 
 
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import cz.pstanisl.appbarexample.R
+import cz.pstanisl.appbarexample.ui.DashboardFragmentDirections
 import cz.pstanisl.appbarexample.ui.shared.toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
