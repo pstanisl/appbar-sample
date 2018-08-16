@@ -3,12 +3,19 @@ package cz.pstanisl.appbarexample.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import cz.pstanisl.appbarexample.R
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
+
+    @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,4 +48,6 @@ class MainActivity : AppCompatActivity() {
         bottomBarShadow.visibility = if (visible) View.VISIBLE else View.GONE
         toolbar.visibility = if (visible) View.GONE else View.VISIBLE
     }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector
 }

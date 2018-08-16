@@ -6,13 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import cz.pstanisl.appbarexample.R
-import cz.pstanisl.appbarexample.ui.DashboardFragmentDirections
 import cz.pstanisl.appbarexample.ui.shared.toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import timber.log.Timber
+import javax.inject.Inject
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,15 +29,19 @@ private const val ARG_PARAM2 = "param2"
  */
 class DashboardFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+//    private var param1: String? = null
+//    private var param2: String? = null
+
+    @Inject lateinit var mViewModelFactory: ViewModelProvider.Factory
+
+    private lateinit var mDashboardViewModel: DashboardViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+//        arguments?.let {
+//            param1 = it.getString(ARG_PARAM1)
+//            param2 = it.getString(ARG_PARAM2)
+//        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -54,13 +59,15 @@ class DashboardFragment : Fragment() {
             when (item.itemId) {
                 R.id.app_bar_settings -> toast("Settings menu item is clicked!")
             }
+            mDashboardViewModel.getInbox()
             true
         }
 
         btnShowDetail.setOnClickListener {
             // Send data to the destination fragment
-            val action = DashboardFragmentDirections.actionDashboardToDetailFragment("testId")
-            view.findNavController().navigate(action)
+//            val action = DashboardFragmentDirections.actionDashboardToDetailFragment("testId")
+//            view.findNavController().navigate(action)
+            mDashboardViewModel.getInbox()
         }
     }
 
@@ -75,13 +82,13 @@ class DashboardFragment : Fragment() {
          * @return A new instance of fragment DashboardFragment.
          */
         // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                DashboardFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+//        @JvmStatic
+//        fun newInstance(param1: String, param2: String) =
+//                DashboardFragment().apply {
+//                    arguments = Bundle().apply {
+//                        putString(ARG_PARAM1, param1)
+//                        putString(ARG_PARAM2, param2)
+//                    }
+//                }
     }
 }

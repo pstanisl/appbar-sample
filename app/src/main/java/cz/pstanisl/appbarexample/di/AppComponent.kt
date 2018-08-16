@@ -13,6 +13,8 @@ import dagger.android.AndroidInjector
     ActivityModule::class,
     AndroidInjectionModule::class,
     NetModule::class,
+    UseCasesModules::class,
+    ViewModelFactoryModule::class,
     ViewModelModule::class
 ])
 interface AppComponent: AndroidInjector<AppBarExampleApp> {
