@@ -1,7 +1,7 @@
 package cz.pstanisl.appbarexample.di
 
 import androidx.lifecycle.ViewModel
-import cz.pstanisl.appbarexample.ui.dashboard.DashboardViewModel
+import cz.pstanisl.appbarexample.ui.dashboard.InboxViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
@@ -18,7 +18,7 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(DashboardViewModel::class)
-    abstract fun bindDashboardViewModel(viewModel: DashboardViewModel): ViewModel
+    @ViewModelKey(InboxViewModel::class)
+    abstract fun bindDashboardViewModel(viewModel: InboxViewModel): ViewModel
 
 }

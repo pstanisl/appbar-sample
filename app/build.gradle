@@ -55,10 +55,11 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui-ktx:$navigation_version"
     // AndroidX
     implementation "androidx.appcompat:appcompat:$support_version"
-    implementation "androidx.legacy:legacy-support-v4:$support_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.legacy:legacy-support-v4:$support_version"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$androidx_lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$androidx_lifecycle_version"
+//    implementation "androidx.lifecycle:lifecycle-reactivestreams:$androidx_lifecycle_version"
     implementation "androidx.preference:preference-ktx:$support_version"
     // Google - Material
     implementation "com.google.android.material:material:$support_version"

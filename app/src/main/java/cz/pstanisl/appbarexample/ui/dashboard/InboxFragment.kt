@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
 import cz.pstanisl.appbarexample.R
 import cz.pstanisl.appbarexample.di.Injectable
+import cz.pstanisl.appbarexample.model.Message
 import cz.pstanisl.appbarexample.ui.shared.toast
+import cz.pstanisl.appbarexample.vo.Resource
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import timber.log.Timber
@@ -36,14 +38,25 @@ class DashboardFragment : Fragment(), Injectable {
 
     @Inject lateinit var mViewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var mDashboardViewModel: DashboardViewModel
+    private lateinit var mInboxViewModel: InboxViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private val mStateObserver = Observer<Resource<List<Message>>> {
+        Timber.d("Loaded data $it")
+    }
+
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
 //        arguments?.let {
 //            param1 = it.getString(ARG_PARAM1)
 //            param2 = it.getString(ARG_PARAM2)
 //        }
+//    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        mInboxViewModel = ViewModelProviders.of(this, mViewModelFactory).get(InboxViewModel::class.java)
+        mInboxViewModel.resourceLiveData.observe(this, mStateObserver)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -52,10 +65,9 @@ class DashboardFragment : Fragment(), Injectable {
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        mDashboardViewModel = ViewModelProviders.of(this, mViewModelFactory).get(DashboardViewModel::class.java)
+    override fun onDestroy() {
+        super.onDestroy()
+        mInboxViewModel.resourceLiveData.removeObserver(mStateObserver)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -67,7 +79,7 @@ class DashboardFragment : Fragment(), Injectable {
             when (item.itemId) {
                 R.id.app_bar_settings -> toast("Settings menu item is clicked!")
             }
-            mDashboardViewModel.getInbox()
+            mInboxViewModel.getInbox()
             true
         }
 
@@ -75,7 +87,7 @@ class DashboardFragment : Fragment(), Injectable {
             // Send data to the destination fragment
 //            val action = DashboardFragmentDirections.actionDashboardToDetailFragment("testId")
 //            view.findNavController().navigate(action)
-            mDashboardViewModel.getInbox()
+            mInboxViewModel.getInbox()
         }
     }
 
