@@ -12,10 +12,8 @@ class DashboardViewModel @Inject constructor(
 ) : ViewModel() {
 
     fun getInbox() {
-        getInboxUseCase.execute(
-                InboxObserver() as DisposableObserver<GetInboxUseCase.ResponseValues>,
-                GetInboxUseCase.RequestValues()
-                )
+        val observer: DisposableObserver<GetInboxUseCase.ResponseValues> = InboxObserver()
+        getInboxUseCase.execute(observer, GetInboxUseCase.RequestValues())
     }
 
     inner class InboxObserver : DisposableObserver<GetInboxUseCase.ResponseValues>() {
