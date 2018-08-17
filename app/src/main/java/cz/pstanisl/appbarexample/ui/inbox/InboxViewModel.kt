@@ -1,4 +1,4 @@
-package cz.pstanisl.appbarexample.ui.dashboard
+package cz.pstanisl.appbarexample.ui.inbox
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

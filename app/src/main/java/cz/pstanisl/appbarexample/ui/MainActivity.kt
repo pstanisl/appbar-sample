@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.navigation.Navigation.findNavController
 import cz.pstanisl.appbarexample.R
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         setup()
     }
 
-    override fun onSupportNavigateUp() = findNavController(R.id.appbar_sample_nav_host_fragment).navigateUp()
+    override fun onSupportNavigateUp() = findNavController(this, R.id.appbar_sample_nav_host_fragment).navigateUp()
 
     private fun setup() {
         bottomBar.setNavigationOnClickListener {
@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
             navigationFragment.show(supportFragmentManager, navigationFragment.tag)
         }
         // Handle navigation changes (e.g. hide bottom bar)
-        val navController = findNavController(R.id.appbar_sample_nav_host_fragment)
-        navController.addOnNavigatedListener { controller, destination ->
+        val navController = findNavController(this, R.id.appbar_sample_nav_host_fragment)
+        navController.addOnNavigatedListener { _, destination ->
             when (destination.id) {
                 R.id.detail, R.id.preference -> changeAppBarVisibility(false)
                 else -> changeAppBarVisibility(true)

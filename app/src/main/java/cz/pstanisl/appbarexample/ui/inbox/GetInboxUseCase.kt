@@ -1,4 +1,4 @@
-package cz.pstanisl.appbarexample.ui.dashboard
+package cz.pstanisl.appbarexample.ui.inbox
 
 import cz.pstanisl.appbarexample.domain.RxUseCase
 import cz.pstanisl.appbarexample.domain.SimpleUseCase

@@ -1,7 +1,7 @@
 package cz.pstanisl.appbarexample.di
 
 import androidx.lifecycle.ViewModel
-import cz.pstanisl.appbarexample.ui.dashboard.InboxViewModel
+import cz.pstanisl.appbarexample.ui.inbox.InboxViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module

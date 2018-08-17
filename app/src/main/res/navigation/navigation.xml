@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/dashboard"
-        android:name="cz.pstanisl.appbarexample.ui.dashboard.DashboardFragment"
+        android:name="cz.pstanisl.appbarexample.ui.inbox.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
+        tools:layout="@layout/fragment_inbox" >
         <action
             android:id="@+id/action_dashboard_to_detailFragment"
             app:destination="@id/detail"

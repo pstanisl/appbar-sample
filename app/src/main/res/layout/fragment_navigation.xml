@@ -40,8 +40,7 @@
         app:layout_constraintBottom_toTopOf="@id/divider_navigation"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/lateral_navigation"
-        style="@style/NavigationView" />
+        app:menu="@menu/lateral_navigation" />
 
     <View
         android:id="@+id/divider_navigation"
@@ -64,8 +63,7 @@
         app:layout_constraintBottom_toTopOf="@id/divider_footer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/forward_navigation"
-        style="@style/NavigationView" />
+        app:menu="@menu/forward_navigation" />
 
     <include
         layout="@layout/navigation_menu_footer"

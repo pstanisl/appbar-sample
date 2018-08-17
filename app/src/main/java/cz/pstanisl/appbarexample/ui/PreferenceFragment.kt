@@ -2,7 +2,9 @@ package cz.pstanisl.appbarexample.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.preference.PreferenceFragmentCompat
 import cz.pstanisl.appbarexample.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,8 +29,9 @@ class PreferenceFragment : PreferenceFragmentCompat() {
         val toolbar = activity!!.toolbar
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_grey600_24dp)
         toolbar.setNavigationOnClickListener {
+            Navigation.findNavController(view).popBackStack()
             // Navigate back to the previous item in the backstack
-            view.findNavController().popBackStack()
+//            view.findNavController().popBackStack()
         }
         toolbar.setTitle(R.string.title_preferences)
     }
