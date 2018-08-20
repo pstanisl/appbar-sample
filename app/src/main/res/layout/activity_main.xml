@@ -22,6 +22,7 @@
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
         android:theme="@style/ThemeOverlay.MaterialComponents.Light"
+        android:elevation="8dp"
         app:navigationIcon="@drawable/ic_menu_black_24dp"
         app:hideOnScroll="true"
         app:layout_scrollFlags="scroll|enterAlways"/>
