@@ -7,6 +7,7 @@
     <string name="action_send_feedback">send feedback</string>
     <string name="action_settings">settings</string>
     <string name="action_show_detail">Show detail</string>
+    <string name="action_show_snackbar">Show SnackBar</string>
 
     <string name="bullet_separator">•</string>
 

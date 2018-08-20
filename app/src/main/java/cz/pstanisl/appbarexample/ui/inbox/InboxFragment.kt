@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import cz.pstanisl.appbarexample.R
 import cz.pstanisl.appbarexample.di.Injectable
@@ -87,10 +88,13 @@ class DashboardFragment : Fragment(), Injectable {
 
         btnShowDetail.setOnClickListener {
             // Send data to the destination fragment
-//            val action = DashboardFragmentDirections.actionDashboardToDetailFragment("testId")
-//            view.findNavController().navigate(action)
+            val action = DashboardFragmentDirections.actionDashboardToDetailFragment("testId")
+            Navigation.findNavController(view).navigate(action)
 //            mInboxViewModel.getInbox()
-            inboxContainer.snack("test") {}
+        }
+
+        btnShowSnackbar.setOnClickListener {
+            inboxContainer.snack("test")
         }
     }
 

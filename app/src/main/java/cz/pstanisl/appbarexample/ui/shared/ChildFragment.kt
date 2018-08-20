@@ -12,23 +12,23 @@ open class ChildFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        activity!!.toolbar.title = ""
+//        activity!!.toolbar.title = ""
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val toolbar = activity!!.toolbar
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_grey600_24dp)
-        toolbar.setNavigationOnClickListener {
-            Navigation.findNavController(view).popBackStack()
-            // Navigate back to the previous item in the backstack
-//            view.findNavController().popBackStack()
-        }
+//        val toolbar = activity!!.toolbar
+//        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_grey600_24dp)
+//        toolbar.setNavigationOnClickListener {
+//            Navigation.findNavController(view).popBackStack()
+//            // Navigate back to the previous item in the backstack
+////            view.findNavController().popBackStack()
+//        }
     }
 
-    fun setTitle(id: Int) {
-        activity!!.toolbar.setTitle(id)
-    }
+//    fun setTitle(id: Int) {
+//        activity!!.toolbar.setTitle(id)
+//    }
 
 }

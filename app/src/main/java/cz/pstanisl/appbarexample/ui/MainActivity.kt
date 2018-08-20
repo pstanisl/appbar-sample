@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         Timber.d("Changing appbar visibility: %s", visible)
         bottomBar.visibility = if (visible) View.VISIBLE else View.GONE
         bottomBarShadow.visibility = if (visible) View.VISIBLE else View.GONE
-        toolbar.visibility = if (visible) View.GONE else View.VISIBLE
     }
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector

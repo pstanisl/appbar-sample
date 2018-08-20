@@ -4,72 +4,140 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigationContainer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior">
 
     <ImageView
         android:id="@+id/vNavigationAppLogo"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
-        app:srcCompat="@drawable/ic_app_menu_logo"
-        android:paddingBottom="@dimen/keyline_1"
         android:paddingTop="@dimen/keyline_1"
-        app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="@dimen/keyline_1"
+        app:layout_constraintBottom_toTopOf="@id/divider_logo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/divider_logo"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_app_menu_logo" />
+
+    <ImageView
+        android:id="@+id/vClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/keyline_2"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/divider_logo"
+        app:srcCompat="@drawable/ic_close_black_24dp"/>
 
     <View
         android:id="@+id/divider_logo"
         style="@style/BottomSheetEntryDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/vLateralNavigation" />
+        app:layout_constraintTop_toBottomOf="@id/vNavigationAppLogo" />
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/vLateralNavigation"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@android:color/transparent"
-        android:theme="@style/AppTheme.NavigationViewOverlay"
-        app:itemBackground="@drawable/navigation_item_background"
-        app:itemHorizontalPadding="@dimen/keyline_2"
-        app:itemIconPadding="@dimen/keyline_4"
-        app:itemIconTint="@color/navigation_icon_color"
-        app:itemTextColor="@color/navigation_item_color"
-        app:layout_constraintBottom_toTopOf="@id/divider_navigation"
+        app:layout_constraintTop_toBottomOf="@id/divider_logo"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/lateral_navigation" />
+        app:layout_constraintRight_toRightOf="parent">
 
-    <View
-        android:id="@+id/divider_navigation"
-        style="@style/BottomSheetEntryDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/vForwardNavigation" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/vForwardNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:theme="@style/AppTheme.NavigationViewOverlay"
-        app:itemBackground="@drawable/navigation_item_background"
-        app:itemHorizontalPadding="@dimen/keyline_2"
-        app:itemIconPadding="@dimen/keyline_4"
-        app:itemTextColor="@color/navigation_item_color"
-        app:itemIconTint="@color/navigation_icon_color"
-        app:layout_constraintBottom_toTopOf="@id/divider_footer"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/forward_navigation" />
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/vLateralNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@android:color/transparent"
+                android:theme="@style/AppTheme.NavigationViewOverlay"
+                app:itemBackground="@drawable/navigation_item_background"
+                app:itemHorizontalPadding="@dimen/keyline_2"
+                app:itemIconPadding="@dimen/keyline_4"
+                app:itemIconTint="@color/navigation_icon_color"
+                app:itemTextColor="@color/navigation_item_color"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/divider_navigation"
+                app:menu="@menu/lateral_navigation" />
 
-    <include
-        layout="@layout/navigation_menu_footer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-    />
+            <View
+                android:id="@+id/divider_navigation"
+                style="@style/BottomSheetEntryDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/vForwardNavigation" />
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/vForwardNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:theme="@style/AppTheme.NavigationViewOverlay"
+                app:itemBackground="@drawable/navigation_item_background"
+                app:itemHorizontalPadding="@dimen/keyline_2"
+                app:itemIconPadding="@dimen/keyline_4"
+                app:itemIconTint="@color/navigation_icon_color"
+                app:itemTextColor="@color/navigation_item_color"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/divider_footer"
+                app:menu="@menu/forward_navigation" />
+
+            <!--<include-->
+                <!--layout="@layout/navigation_menu_footer"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/vForwardNavigation"-->
+                <!--/>-->
+
+            <View
+                android:id="@+id/divider_footer"
+                style="@style/BottomSheetEntryDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/footer_separator" />
+
+            <TextView
+                android:id="@+id/tvPrivacyPolicy"
+                style="@style/FooterClickableActionItemStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/action_privacy_policy"
+                android:textAlignment="center"
+                app:layout_constraintRight_toLeftOf="@id/footer_separator"
+                app:layout_constraintTop_toBottomOf="@id/divider_footer" />
+
+            <TextView
+                android:id="@+id/footer_separator"
+                style="@style/FooterActionItemStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bullet_separator"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <TextView
+                android:id="@+id/tvFAQ"
+                style="@style/FooterClickableActionItemStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/action_faq"
+                app:layout_constraintLeft_toRightOf="@id/footer_separator"
+                app:layout_constraintTop_toBottomOf="@id/divider_footer" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

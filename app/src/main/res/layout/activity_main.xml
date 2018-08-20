@@ -6,20 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:elevation="0dp">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:background="@color/background"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-        />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
     <fragment
         android:id="@+id/appbar_sample_nav_host_fragment"
         android:layout_width="match_parent"
@@ -36,7 +22,9 @@
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
         android:theme="@style/ThemeOverlay.MaterialComponents.Light"
-        app:navigationIcon="@drawable/ic_menu_black_24dp" />
+        app:navigationIcon="@drawable/ic_menu_black_24dp"
+        app:hideOnScroll="true"
+        app:layout_scrollFlags="scroll|enterAlways"/>
     <!--android:elevation="8dp"-->
 
     <!-- NOTE: Fixing issue with missing elevation shadow -->
