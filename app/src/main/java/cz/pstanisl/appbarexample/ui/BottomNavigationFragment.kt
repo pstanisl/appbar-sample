@@ -19,6 +19,7 @@ import androidx.navigation.NavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.navigation_menu.*
 import timber.log.Timber
 
 class BottomNavigationFragment: RoundedBottomSheetDialogFragment() {
