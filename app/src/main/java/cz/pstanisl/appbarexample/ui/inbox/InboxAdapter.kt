@@ -1,6 +1,7 @@
 package cz.pstanisl.appbarexample.ui.inbox
 
 import android.content.res.ColorStateList
+import android.graphics.Typeface
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -36,13 +37,16 @@ class InboxAdapter: RecyclerView.Adapter<InboxAdapter.InboxViewHolder>(), AutoUp
             subject.text = msg.subject
             message.text = msg.message
             timestamp.text = msg.timestamp
-
+            // Favorite icon and color
             val favoriteIconResId = if (msg.isImportant) R.drawable.ic_star_black_24dp else R.drawable.ic_star_border_grey600_24dp
             val favoriteColorId = if (msg.isImportant) R.color.favorite else R.color.google_grey600
-
             favorite.setImageResource(favoriteIconResId)
             DrawableCompat.setTint(favorite.drawable, ContextCompat.getColor(context, favoriteColorId))
-//            favorite.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, favoriteColorId))
+            // Mark unread messages
+            if (!msg.isRead) {
+                from.typeface = Typeface.DEFAULT_BOLD
+                subject.typeface = Typeface.DEFAULT_BOLD
+            }
         }
 
     }
