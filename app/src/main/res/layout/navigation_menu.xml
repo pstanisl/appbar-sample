@@ -76,18 +76,20 @@
             android:id="@+id/footer_separator"
             style="@style/FooterActionItemStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
             android:text="@string/bullet_separator"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tvFAQ"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvPrivacyPolicy" />
 
         <TextView
             android:id="@+id/tvFAQ"
             style="@style/FooterClickableActionItemStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:text="@string/action_faq"
             app:layout_constraintLeft_toRightOf="@id/footer_separator"
             app:layout_constraintTop_toBottomOf="@id/divider_footer" />
