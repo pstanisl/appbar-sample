@@ -4,13 +4,15 @@
     <dimen name="bottom_sheet_corner_radius">4dp</dimen>
     <dimen name="bottom_sheet_top_padding">8dp</dimen>
 
+    <!-- Keylines -->
     <dimen name="keyline_1">8dp</dimen>
     <dimen name="keyline_2">16dp</dimen>
     <dimen name="keyline_3">24dp</dimen>
     <dimen name="keyline_4">32dp</dimen>
-
-    <dimen name="toolbar_margin_compensation">?attr/actionBarSize</dimen>
-
+    
+    <!-- List items -->
+    <dimen name="three_line_item_height">88dp</dimen>
+    
     <!-- Font sizes -->
     <dimen name="default_font_size">16sp</dimen>
     <dimen name="small_font_size">14sp</dimen>

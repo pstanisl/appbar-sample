@@ -46,6 +46,8 @@
     <color name="secondary_light">#ff6988</color>
     <color name="secondary_dark">#9a0032</color>
 
+    <color name="favorite">#ffde03</color>
+
     <!-- Background colors -->
     <color name="background">@color/white</color>
     <color name="background_primary">#1F0081d5</color>
