@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/dashboard"
-        android:name="cz.pstanisl.appbarexample.ui.inbox.DashboardFragment"
+        android:name="cz.pstanisl.appbarexample.ui.inbox.InboxFragment"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_inbox" >
         <action
@@ -30,7 +30,7 @@
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="detailId"
-            app:argType="string" />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/preference"

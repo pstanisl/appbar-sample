@@ -6,7 +6,7 @@
     android:id="@+id/inboxContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.inbox.DashboardFragment">
+    tools:context=".ui.inbox.InboxFragment">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swlInboxContainer"

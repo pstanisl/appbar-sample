@@ -13,7 +13,7 @@ import cz.pstanisl.appbarexample.ui.shared.inflate
 import kotlinx.android.synthetic.main.item_message.view.*
 import kotlin.properties.Delegates
 
-class InboxAdapter: RecyclerView.Adapter<InboxAdapter.InboxViewHolder>(), AutoUpdatableAdapter {
+class InboxAdapter constructor(private val listener: InboxAdapterListener): RecyclerView.Adapter<InboxAdapter.InboxViewHolder>(), AutoUpdatableAdapter {
 
     var items: List<Message> by Delegates.observable(emptyList()) {
         _, old, new -> autoNotify(old, new) { o, n -> o.id == n.id }
@@ -26,12 +26,12 @@ class InboxAdapter: RecyclerView.Adapter<InboxAdapter.InboxViewHolder>(), AutoUp
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: InboxViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], listener)
     }
 
     class InboxViewHolder constructor(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        fun bind(msg: Message) = with(itemView) {
+        fun bind(msg: Message, listener: InboxAdapterListener) = with(itemView) {
             from.text = msg.from
             subject.text = msg.subject
             message.text = msg.message
@@ -46,8 +46,14 @@ class InboxAdapter: RecyclerView.Adapter<InboxAdapter.InboxViewHolder>(), AutoUp
                 from.typeface = Typeface.DEFAULT_BOLD
                 subject.typeface = Typeface.DEFAULT_BOLD
             }
+            // On click listener
+            setOnClickListener { listener.onMessageClick(msg.id) }
         }
 
     }
 
+
+    interface InboxAdapterListener {
+        fun onMessageClick(id: Int)
+    }
 }

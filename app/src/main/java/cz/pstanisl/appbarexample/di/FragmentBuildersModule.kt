@@ -1,6 +1,6 @@
 package cz.pstanisl.appbarexample.di
 
-import cz.pstanisl.appbarexample.ui.inbox.DashboardFragment
+import cz.pstanisl.appbarexample.ui.inbox.InboxFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -8,6 +8,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
-    abstract fun contributeDashboardFragment(): DashboardFragment
+    abstract fun contributeDashboardFragment(): InboxFragment
 
 }
