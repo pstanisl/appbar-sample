@@ -16,7 +16,7 @@ class InboxViewModel @Inject constructor(
 
     fun getInbox() {
         // Dispose previous cases
-        getInboxUseCase.dispose()
+//        getInboxUseCase.dispose()
         resourceLiveData.value = Resource.loading()
         // Initiate new use case
         val observer: DisposableObserver<GetInboxUseCase.ResponseValues> = InboxObserver()

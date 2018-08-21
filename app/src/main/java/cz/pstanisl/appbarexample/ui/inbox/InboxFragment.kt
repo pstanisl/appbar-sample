@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -16,12 +17,15 @@ import com.google.android.material.snackbar.Snackbar
 import cz.pstanisl.appbarexample.R
 import cz.pstanisl.appbarexample.di.Injectable
 import cz.pstanisl.appbarexample.model.Message
+import cz.pstanisl.appbarexample.ui.shared.DividerItemDecoration
 import cz.pstanisl.appbarexample.ui.shared.snack
 import cz.pstanisl.appbarexample.ui.shared.toast
 import cz.pstanisl.appbarexample.vo.Resource
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_inbox.*
 import timber.log.Timber
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 
@@ -56,7 +60,7 @@ class DashboardFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshLi
                 swlInboxContainer.isRefreshing = false
             }
             is Resource.Failure -> {
-                Timber.e(it.e)
+                showError(it.e)
                 swlInboxContainer.isRefreshing = false
             }
         }
@@ -108,7 +112,7 @@ class DashboardFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshLi
         mInboxAdapter = InboxAdapter()
         rvInbox.layoutManager = LinearLayoutManager(context)
 //        rvInbox.itemAnimator
-//        rvInbox.addItemDecoration()
+        rvInbox.addItemDecoration(DividerItemDecoration(context!!, LinearLayoutManager.VERTICAL))
         rvInbox.adapter = mInboxAdapter
 
 //        btnShowDetail.setOnClickListener {
@@ -126,6 +130,16 @@ class DashboardFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshLi
     override fun onRefresh() {
         // Refresh requested, fetch the data
         mInboxViewModel.getInbox()
+    }
+
+    private fun showError(error: Throwable) {
+        val message = when (error) {
+            is SocketTimeoutException -> getString(R.string.error_message_data_error_timeout)
+            is UnknownHostException -> getString(R.string.error_message_data_error_host)
+            else -> error.localizedMessage ?: error.toString()
+        }
+
+        inboxContainer.snack(message)
     }
 
     companion object {

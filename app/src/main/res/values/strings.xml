@@ -11,6 +11,9 @@
 
     <string name="bullet_separator">•</string>
 
+    <string name="error_message_data_error_host">Unable to connect to the server. Is the device connected to the internet?</string>
+    <string name="error_message_data_error_timeout">Connection to the server timed out.</string>
+
     <string name="nav_item_dashboard">Dashboard</string>
     <string name="nav_item_favorite">Favorite</string>
     <string name="nav_item_send_feedback">Send feedback</string>
