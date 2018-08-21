@@ -18,10 +18,10 @@ abstract class SimpleUseCase<in Q : RxUseCase.RequestValues, P : RxUseCase.Respo
     }
 
     fun execute(observer: DisposableObserver<P>, requestValues: Q) {
-        val single = buildUseCase(requestValues)
+        val observable = buildUseCase(requestValues)
                 .subscribeOn(subscribeOn)
                 .observeOn(observeOn)
-        addDisposable(single.subscribeWith(observer))
+        addDisposable(observable.subscribeWith(observer))
     }
 
 

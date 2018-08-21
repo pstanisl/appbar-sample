@@ -15,7 +15,10 @@ class InboxViewModel @Inject constructor(
     val resourceLiveData = MutableLiveData<Resource<List<Message>>>()
 
     fun getInbox() {
+        // Dispose previous cases
+        getInboxUseCase.dispose()
         resourceLiveData.value = Resource.loading()
+        // Initiate new use case
         val observer: DisposableObserver<GetInboxUseCase.ResponseValues> = InboxObserver()
         getInboxUseCase.execute(observer, GetInboxUseCase.RequestValues())
     }
@@ -30,7 +33,6 @@ class InboxViewModel @Inject constructor(
         }
 
         override fun onError(e: Throwable) {
-            Timber.e(e)
             resourceLiveData.value = Resource.failure(e)
         }
     }

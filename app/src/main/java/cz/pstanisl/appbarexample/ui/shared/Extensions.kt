@@ -1,23 +1,27 @@
 package cz.pstanisl.appbarexample.ui.shared
 
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.snackbar.Snackbar
 import cz.pstanisl.appbarexample.R
 import cz.pstanisl.appbarexample.px
-import kotlinx.android.synthetic.main.activity_main.view.*
 import timber.log.Timber
+
+// Toast
 
 fun Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this.context, message, duration).show()
 }
+
+// SnackBar
 
 fun ViewGroup.snack(@StringRes messageRes: Int, length: Int = Snackbar.LENGTH_LONG) {
     snack(resources.getString(messageRes), length)
@@ -62,6 +66,8 @@ fun Snackbar.action(action: String, color: Int? = null, listener: (View) -> Unit
     color?.let { setActionTextColor(color) }
 }
 
+// BottomAppBar
+
 fun isBottomAppBarVisible(viewGroup: ViewGroup): Boolean {
     var parent: View? = viewGroup
     var bottomAppBar: BottomAppBar?
@@ -77,4 +83,10 @@ fun isBottomAppBarVisible(viewGroup: ViewGroup): Boolean {
     }
 
     return false
+}
+
+// ViewGroup
+
+fun ViewGroup.inflate(@LayoutRes layoutRes: Int): View {
+    return LayoutInflater.from(context).inflate(layoutRes, this, false)
 }
