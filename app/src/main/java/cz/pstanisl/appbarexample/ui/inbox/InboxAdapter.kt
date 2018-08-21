@@ -1,6 +1,5 @@
 package cz.pstanisl.appbarexample.ui.inbox
 
-import android.content.res.ColorStateList
 import android.graphics.Typeface
 import android.view.View
 import android.view.ViewGroup
