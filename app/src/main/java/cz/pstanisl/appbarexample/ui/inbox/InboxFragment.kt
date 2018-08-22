@@ -58,7 +58,6 @@ class InboxFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshListen
 
     }
 
-
     private val mStateObserver = Observer<Resource<List<Message>>> {
         Timber.d("Loaded data $it")
         when (it) {
@@ -66,6 +65,9 @@ class InboxFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshListen
             is Resource.Success -> {
                 mInboxAdapter.items = it.data!!
                 swlInboxContainer.isRefreshing = false
+                if (it.data.isEmpty()) {
+                    showError(IllegalStateException("Empty data"))
+                }
             }
             is Resource.Failure -> {
                 showError(it.e)
@@ -88,7 +90,7 @@ class InboxFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshListen
         mInboxViewModel = ViewModelProviders.of(this, mViewModelFactory).get(InboxViewModel::class.java)
         mInboxViewModel.resourceLiveData.observe(this, mStateObserver)
 
-        mInboxViewModel.getInbox()
+        mInboxViewModel.getInbox(false)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -111,7 +113,6 @@ class InboxFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshListen
             when (item.itemId) {
                 R.id.app_bar_settings -> toast("Settings menu item is clicked!")
             }
-            mInboxViewModel.getInbox()
             true
         }
         // Register refresh listener, after refresh is initialized messages are fetched.
@@ -126,7 +127,7 @@ class InboxFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshListen
 
     override fun onRefresh() {
         // Refresh requested, fetch the data
-        mInboxViewModel.getInbox()
+        mInboxViewModel.getInbox(true)
     }
 
     private fun showError(error: Throwable) {

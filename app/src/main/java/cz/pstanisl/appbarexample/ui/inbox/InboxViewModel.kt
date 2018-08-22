@@ -14,13 +14,13 @@ class InboxViewModel @Inject constructor(
 
     val resourceLiveData = MutableLiveData<Resource<List<Message>>>()
 
-    fun getInbox() {
+    fun getInbox(reload: Boolean) {
         // Dispose previous cases
 //        getInboxUseCase.dispose()
         resourceLiveData.value = Resource.loading()
         // Initiate new use case
         val observer: DisposableObserver<GetInboxUseCase.ResponseValues> = InboxObserver()
-        getInboxUseCase.execute(observer, GetInboxUseCase.RequestValues())
+        getInboxUseCase.execute(observer, GetInboxUseCase.RequestValues(reload))
     }
 
     inner class InboxObserver : DisposableObserver<GetInboxUseCase.ResponseValues>() {

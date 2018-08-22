@@ -12,10 +12,10 @@ import javax.inject.Inject
 class GetInboxUseCase @Inject constructor(private val inboxRepository: InboxRepository) : SimpleUseCase<GetInboxUseCase.RequestValues, GetInboxUseCase.ResponseValues>(Schedulers.io(), AndroidSchedulers.mainThread()) {
 
     override fun buildUseCase(requestValues: RequestValues): Observable<ResponseValues> {
-        return inboxRepository.getInbox().map(::ResponseValues)
+        return inboxRepository.getInbox(requestValues.reload).map(::ResponseValues)
     }
 
-    class RequestValues : RxUseCase.RequestValues
+    data class RequestValues constructor(val reload: Boolean) : RxUseCase.RequestValues
 
     data class ResponseValues constructor(val messages: List<Message>) : RxUseCase.ResponseValues
 }

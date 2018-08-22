@@ -1,6 +1,7 @@
 package cz.pstanisl.appbarexample.di
 
 import androidx.lifecycle.ViewModel
+import cz.pstanisl.appbarexample.ui.detail.DetailViewModel
 import cz.pstanisl.appbarexample.ui.inbox.InboxViewModel
 import dagger.Binds
 import dagger.MapKey
@@ -18,7 +19,12 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
+    @ViewModelKey(DetailViewModel::class)
+    abstract fun bindDetailViewModel(viewModel: DetailViewModel): ViewModel
+
+    @Binds
+    @IntoMap
     @ViewModelKey(InboxViewModel::class)
-    abstract fun bindDashboardViewModel(viewModel: InboxViewModel): ViewModel
+    abstract fun bindInboxViewModel(viewModel: InboxViewModel): ViewModel
 
 }

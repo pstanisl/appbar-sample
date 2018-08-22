@@ -26,12 +26,17 @@ class InboxAdapter constructor(private val listener: InboxAdapterListener): Recy
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: InboxViewHolder, position: Int) {
-        holder.bind(items[position], listener)
+        holder.applyClickEvents(items[position], listener)
+        holder.bind(items[position])
     }
 
     class InboxViewHolder constructor(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        fun bind(msg: Message, listener: InboxAdapterListener) = with(itemView) {
+        fun applyClickEvents(msg: Message, listener: InboxAdapterListener) = with(itemView) {
+            setOnClickListener { listener.onMessageClick(msg.id) }
+        }
+
+        fun bind(msg: Message) = with(itemView) {
             from.text = msg.from
             subject.text = msg.subject
             message.text = msg.message
@@ -46,8 +51,6 @@ class InboxAdapter constructor(private val listener: InboxAdapterListener): Recy
                 from.typeface = Typeface.DEFAULT_BOLD
                 subject.typeface = Typeface.DEFAULT_BOLD
             }
-            // On click listener
-            setOnClickListener { listener.onMessageClick(msg.id) }
         }
 
     }
