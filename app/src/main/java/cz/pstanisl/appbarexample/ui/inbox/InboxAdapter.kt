@@ -1,5 +1,6 @@
 package cz.pstanisl.appbarexample.ui.inbox
 
+import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
@@ -12,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import cz.pstanisl.appbarexample.R
 import cz.pstanisl.appbarexample.model.Message
 import cz.pstanisl.appbarexample.ui.shared.AutoUpdatableAdapter
+import cz.pstanisl.appbarexample.ui.shared.clearUrl
 import cz.pstanisl.appbarexample.ui.shared.inflate
+import cz.pstanisl.appbarexample.ui.shared.loadUrl
 import kotlinx.android.synthetic.main.item_message.view.*
 import kotlin.properties.Delegates
 
@@ -55,13 +58,32 @@ class InboxAdapter constructor(private val listener: InboxAdapterListener): Recy
                 from.typeface = Typeface.DEFAULT_BOLD
                 subject.typeface = Typeface.DEFAULT_BOLD
             }
-            // Avatar icon and text
-            when (avatar.background) {
-                is ColorDrawable -> (avatar.background as ColorDrawable).color = msg.color
-                is GradientDrawable -> (avatar.background as GradientDrawable).setColor(msg.color)
-                is ShapeDrawable -> (avatar.background as ShapeDrawable).paint.color = msg.color
+            // Set avatar
+            setAvatar(msg)
+        }
+
+        private fun setAvatar(msg: Message) = with(itemView) {
+            if (msg.picture.isBlank()) {
+                // Avatar icon and text
+                setAvatarBackground(msg.color)
+                avatarText.text = msg.from.substring(0, 1)
+                avatarText.visibility = View.VISIBLE
+                // Clear loading, handle problem where view is reusable with RecyclerView
+                // and ImageView contains wrong image.
+                avatar.clearUrl()
+            } else {
+                avatar.loadUrl(msg.picture)
+                setAvatarBackground(Color.TRANSPARENT)
+                avatarText.visibility = View.GONE
             }
-            avatarText.text = msg.from.substring(0, 1)
+        }
+
+        private fun setAvatarBackground(color: Int) = with(itemView) {
+            when (avatar.background) {
+                is ColorDrawable -> (avatar.background as ColorDrawable).color = color
+                is GradientDrawable -> (avatar.background as GradientDrawable).setColor(color)
+                is ShapeDrawable -> (avatar.background as ShapeDrawable).paint.color = color
+            }
         }
 
     }

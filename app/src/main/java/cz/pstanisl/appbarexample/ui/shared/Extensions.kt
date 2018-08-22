@@ -4,16 +4,18 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.fragment.app.Fragment
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.snackbar.Snackbar
 import cz.pstanisl.appbarexample.R
 import cz.pstanisl.appbarexample.px
-import timber.log.Timber
 
 // Toast
 
@@ -74,7 +76,6 @@ fun isBottomAppBarVisible(viewGroup: ViewGroup): Boolean {
 
     while (parent != null) {
         bottomAppBar = parent.findViewById(R.id.bottomBar)
-        Timber.d("BottomAppBar: %s", bottomAppBar)
         if (bottomAppBar != null) {
             return bottomAppBar.visibility == View.VISIBLE
         }
@@ -83,6 +84,20 @@ fun isBottomAppBarVisible(viewGroup: ViewGroup): Boolean {
     }
 
     return false
+}
+
+// ImageView
+
+fun ImageView.loadUrl(url: String) {
+    GlideApp.with(context).load(url)
+            .thumbnail(.5f)
+            .apply(RequestOptions.circleCropTransform())
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(this)
+}
+
+fun ImageView.clearUrl() {
+    GlideApp.with(context).clear(this)
 }
 
 // ViewGroup

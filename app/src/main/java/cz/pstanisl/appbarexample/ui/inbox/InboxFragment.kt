@@ -96,7 +96,7 @@ class InboxFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshListen
 
         mInboxViewModel = ViewModelProviders.of(this, mViewModelFactory).get(InboxViewModel::class.java)
         mInboxViewModel.resourceLiveData.observe(this, mStateObserver)
-
+        // Load inbox data
         mInboxViewModel.getInbox(false)
     }
 
