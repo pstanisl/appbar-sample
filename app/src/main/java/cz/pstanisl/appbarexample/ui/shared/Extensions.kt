@@ -90,6 +90,7 @@ fun isBottomAppBarVisible(viewGroup: ViewGroup): Boolean {
 
 fun ImageView.loadUrl(url: String) {
     GlideApp.with(context).load(url)
+            .error(R.drawable.ic_help_grey600_24dp)
             .thumbnail(.5f)
             .apply(RequestOptions.circleCropTransform())
             .diskCacheStrategy(DiskCacheStrategy.ALL)
