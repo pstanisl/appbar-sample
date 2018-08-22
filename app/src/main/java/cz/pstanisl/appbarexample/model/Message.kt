@@ -9,5 +9,5 @@ data class Message(
     val picture: String,
     val isImportant: Boolean,
     val isRead: Boolean,
-    val color: Int = -1
+    var color: Int = -1
 )

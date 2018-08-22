@@ -12,6 +12,7 @@
     
     <!-- List items -->
     <dimen name="three_line_item_height">88dp</dimen>
+    <dimen name="avatar_size">40dp</dimen>
     
     <!-- Font sizes -->
     <dimen name="default_font_size">16sp</dimen>

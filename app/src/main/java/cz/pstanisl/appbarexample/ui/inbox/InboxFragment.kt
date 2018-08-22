@@ -1,6 +1,7 @@
 package cz.pstanisl.appbarexample.ui.inbox
 
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -63,7 +64,13 @@ class InboxFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshListen
         when (it) {
             is Resource.Loading -> swlInboxContainer.isRefreshing = true
             is Resource.Success -> {
-                mInboxAdapter.items = it.data!!
+                mInboxAdapter.items = it.data!!.map {
+                    // Set item color if necessary
+                    if (it.color == 0) {
+                        it.color = getRandomColor("400")
+                    }
+                    it
+                }
                 swlInboxContainer.isRefreshing = false
                 if (it.data.isEmpty()) {
                     showError(IllegalStateException("Empty data"))
@@ -138,6 +145,19 @@ class InboxFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshListen
         }
 
         inboxContainer.snack(message)
+    }
+
+    private fun getRandomColor(typeColor: String): Int {
+        var returnColor = Color.GRAY
+        val arrayId = resources.getIdentifier("mdcolor_$typeColor", "array", context!!.packageName)
+
+        if (arrayId != 0) {
+            val colors = resources.obtainTypedArray(arrayId)
+            val index = (Math.random() * colors.length()).toInt()
+            returnColor = colors.getColor(index, Color.GRAY)
+            colors.recycle()
+        }
+        return returnColor
     }
 
     companion object {

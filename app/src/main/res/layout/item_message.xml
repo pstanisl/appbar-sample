@@ -6,6 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/three_line_item_height">
 
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="@dimen/avatar_size"
+        android:layout_height="@dimen/avatar_size"
+        android:layout_marginStart="@dimen/keyline_2"
+        android:layout_marginTop="@dimen/keyline_2"
+        android:background="@drawable/bg_circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/avatarText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@color/on_primary"
+        app:layout_constraintBottom_toBottomOf="@id/avatar"
+        app:layout_constraintEnd_toEndOf="@id/avatar"
+        app:layout_constraintStart_toStartOf="@id/avatar"
+        app:layout_constraintTop_toTopOf="@id/avatar"
+        tools:text="M"/>
+
     <TextView
         android:id="@+id/from"
         android:layout_width="0dp"
@@ -15,7 +37,7 @@
         android:layout_marginEnd="@dimen/keyline_2"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintEnd_toStartOf="@id/timestamp"
         tools:text="@tools:sample/full_names"/>
 
