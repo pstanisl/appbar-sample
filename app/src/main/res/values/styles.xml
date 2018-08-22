@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/secondary</item>
 
         <item name="android:windowBackground">@color/background</item>
+        <item name="android:fontFamily">@font/googlesans</item>
 
         <item name="android:listDivider">@color/gray_light</item>
 
