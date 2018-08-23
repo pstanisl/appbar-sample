@@ -1,7 +1,7 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <!-- base set of styles that apply to all versions -->
+    <style name="BaseTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
@@ -14,6 +14,9 @@
 
         <item name="preferenceTheme">@style/AppTheme.PreferenceStyle</item>
     </style>
+
+    <!-- declare the theme name that's actually applied in the manifest file -->
+    <style name="AppTheme" parent="BaseTheme" />
 
     <style name="AppTheme.NavigationViewOverlay" parent="@style/Widget.Design.NavigationView">
         <!-- set divider visual in the navigation view -->

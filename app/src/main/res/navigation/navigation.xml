@@ -35,7 +35,8 @@
     <fragment
         android:id="@+id/preference"
         android:name="cz.pstanisl.appbarexample.ui.PreferenceFragment"
-        android:label="PreferenceFragment" />
+        android:label="PreferenceFragment"
+        tools:layout="@layout/pref_screen"/>
     <action
         android:id="@+id/action_global_preference"
         app:destination="@id/preference"
