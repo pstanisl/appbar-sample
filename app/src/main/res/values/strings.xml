@@ -12,7 +12,11 @@
     <string name="bullet_separator">•</string>
 
     <!-- Content descriptions -->
+    <string name="content_description_avatar">Avatar icon of the sender</string>
     <string name="content_description_favorite">Favorite message icon</string>
+
+    <!-- Detail -->
+    <string name="message_to">to John</string>
 
     <!-- Error messages -->
     <string name="error_message_data_error_host">Unable to connect to the server. Is the device connected to the internet?</string>

@@ -114,7 +114,7 @@ class InboxFragment : Fragment(), Injectable, SwipeRefreshLayout.OnRefreshListen
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        activity!!.bottomBar.replaceMenu(R.menu.dashboard_menu)
+        activity!!.bottomBar.replaceMenu(R.menu.inbox_menu)
         activity!!.bottomBar.setOnMenuItemClickListener { item ->
             Timber.d("BottomBar menu item clicked: %s", item.itemId)
             when (item.itemId) {

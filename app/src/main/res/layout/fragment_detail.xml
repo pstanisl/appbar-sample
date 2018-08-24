@@ -25,25 +25,37 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
-        android:id="@+id/tvDetailTitle"
-        android:layout_width="match_parent"
+        android:id="@+id/subject"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/keyline_2"
+        android:layout_marginEnd="@dimen/keyline_2"
         android:text="@string/title_detail"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inboxAppbar" />
+
+    <TextView
+        android:id="@+id/timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/keyline_2"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        app:layout_constraintTop_toTopOf="@id/avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="@tools:sample/date/hhmm"/>
 
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="@dimen/avatar_size"
         android:layout_height="@dimen/avatar_size"
         android:layout_marginStart="@dimen/keyline_2"
-        android:layout_marginTop="@dimen/keyline_2"
+        android:layout_marginTop="@dimen/keyline_3"
         android:background="@drawable/bg_circle"
+        android:contentDescription="@string/content_description_avatar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDetailTitle" />
+        app:layout_constraintTop_toBottomOf="@id/subject" />
 
     <TextView
         android:id="@+id/avatarText"
@@ -66,6 +78,7 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constraintTop_toTopOf="@id/avatar"
         app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintEnd_toStartOf="@id/timestamp"
         tools:text="@tools:sample/full_names"/>
 
     <TextView
@@ -73,10 +86,24 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/keyline_2"
-        android:layout_marginEnd="@dimen/keyline_2"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-        app:layout_constraintTop_toBottomOf="@id/from"
+        android:text="@string/message_to"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textColor="@color/text_secondary_on_background"
         app:layout_constraintStart_toEndOf="@id/avatar"
-        tools:text="@tools:sample/full_names"/>
+        app:layout_constraintTop_toBottomOf="@id/from" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/keyline_3"
+        android:layout_marginEnd="@dimen/keyline_2"
+        android:layout_marginBottom="@dimen/keyline_2"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/avatar"
+        app:layout_constraintTop_toBottomOf="@id/avatar"
+        tools:text="@tools:sample/lorem" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
