@@ -6,6 +6,7 @@ import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.ShapeDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -59,11 +60,19 @@ class DetailFragment: ChildFragment(), Injectable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val id = DetailFragmentArgs.fromBundle(arguments).id
+
         toolbar.setNavigationOnClickListener {
             Navigation.findNavController(view).popBackStack()
         }
 
         toolbar.inflateMenu(R.menu.detail_menu)
+        toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.detailFavorite -> mDetailViewModel.toggleFavorite(id)
+            }
+            true
+        }
     }
 
     private fun fillIn(msg: Message) {
@@ -73,10 +82,7 @@ class DetailFragment: ChildFragment(), Injectable {
         subject.text = msg.subject
         // Favorite icon and color
         val menuItem = toolbar.menu.findItem(R.id.detailFavorite)
-        val favoriteIconResId = if (msg.isImportant) R.drawable.ic_star_black_24dp else R.drawable.ic_star_border_grey600_24dp
-        val favoriteColorId = if (msg.isImportant) R.color.favorite else R.color.google_grey600
-        menuItem.icon = ContextCompat.getDrawable(context!!, favoriteIconResId)
-        DrawableCompat.setTint(menuItem.icon, ContextCompat.getColor(context!!, favoriteColorId))
+        setFavorite(menuItem, msg.isImportant)
         // Set Avatar content
         setAvatar(msg)
     }
@@ -99,6 +105,13 @@ class DetailFragment: ChildFragment(), Injectable {
             is GradientDrawable -> (avatar.background as GradientDrawable).setColor(color)
             is ShapeDrawable -> (avatar.background as ShapeDrawable).paint.color = color
         }
+    }
+
+    private fun setFavorite(menuItem: MenuItem, isFavorite: Boolean) {
+        val favoriteIconResId = if (isFavorite) R.drawable.ic_star_black_24dp else R.drawable.ic_star_border_grey600_24dp
+        val favoriteColorId = if (isFavorite) R.color.favorite else R.color.google_grey600
+        menuItem.icon = ContextCompat.getDrawable(context!!, favoriteIconResId)
+        DrawableCompat.setTint(menuItem.icon, ContextCompat.getColor(context!!, favoriteColorId))
     }
 
 }

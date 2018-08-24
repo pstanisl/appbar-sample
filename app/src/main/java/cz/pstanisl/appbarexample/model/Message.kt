@@ -7,7 +7,7 @@ data class Message(
     val message: String,
     val timestamp: String,
     val picture: String,
-    val isImportant: Boolean,
+    var isImportant: Boolean,
     val isRead: Boolean,
     var color: Int = -1
 )

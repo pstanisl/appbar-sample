@@ -1,6 +1,7 @@
 package cz.pstanisl.appbarexample.model
 
 import cz.pstanisl.appbarexample.api.AndroidHiveApi
+import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -27,5 +28,13 @@ class InboxRepository @Inject constructor(private val androidHiveApi: AndroidHiv
         return getInbox(false).map { messages ->
             messages.first { it.id == id }
         }
+    }
+
+    fun toggleFavorite(id: Int): Completable {
+        return Completable.fromObservable(getInbox(false).map { messages ->
+            messages.first { it.id == id }
+        }.map { message ->
+            message.isImportant = message.isImportant.not()
+        })
     }
 }

@@ -8,16 +8,24 @@ import io.reactivex.observers.DisposableObserver
 import javax.inject.Inject
 
 class DetailViewModel @Inject constructor(
-        private val getMessageUseCase: GetMessageUseCase
+        private val getMessageUseCase: GetMessageUseCase,
+        private val toggleFavoriteUseCase: ToggleFavoriteUseCase
 ) : ViewModel() {
 
     val resourceLiveData = MutableLiveData<Resource<Message>>()
 
-    fun getMessage(index: Int) {
+    fun getMessage(id: Int) {
         resourceLiveData.value = Resource.loading()
 
         val observer: DisposableObserver<GetMessageUseCase.ResponseValues> = MessageObserver()
-        getMessageUseCase.execute(observer, GetMessageUseCase.RequestValues(index))
+        getMessageUseCase.execute(observer, GetMessageUseCase.RequestValues(id))
+    }
+
+    fun toggleFavorite(id: Int) {
+        resourceLiveData.value = Resource.loading()
+
+        val observer: DisposableObserver<GetMessageUseCase.ResponseValues> = MessageObserver()
+        toggleFavoriteUseCase.execute(observer, GetMessageUseCase.RequestValues(id))
     }
 
     inner class MessageObserver : DisposableObserver<GetMessageUseCase.ResponseValues>() {
